@@ -8,6 +8,10 @@ from selenium import webdriver
 # from selenium.webdriver.common.keys import Keys
 from time import sleep
 
+username = input('Enter Username')
+password = input('Enter Password')
+search = input('Enter username of account to search')
+
 sleep(10)
 driver = webdriver.Chrome()  # Opens the homepage using Google Chrome
 driver.get("https://www.instagram.com/")  # Opens the instagram page
@@ -17,11 +21,11 @@ sleep(4)
 
 # Enter username below
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input").send_keys(
-    "")  # puts in user name
+    username)  # puts in user name
 
 #Enter password below
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input").send_keys(
-    "")  # puts in your password
+    password)  # puts in your password
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[4]").click()  # clicks the log in button
 sleep(4)
 
@@ -47,7 +51,7 @@ sleep(4)
 
 # Type in the account username of person whose followers you want to check
 driver.find_element_by_css_selector(
-    "#react-root > section > nav > div._8MQSO.Cx7Bp > div > div > div.LWmhU._0aCwM > input").send_keys("")
+    "#react-root > section > nav > div._8MQSO.Cx7Bp > div > div > div.LWmhU._0aCwM > input").send_keys(search)
 sleep(2)
 # There are 2 ways to open the profile page of selected user
 # Either we can use xpath once you get the search result
